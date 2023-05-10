@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Segment display</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container" style="max-width: 50%;margin-top: 3%;background-color: #97bef7;border: 1px groove grey">
+        <div style="text-align: center;">
+            <p style="margin-bottom: 0;margin-top: 5%">Output number: </p>
+            <h1 id="output">0</h1>
+        </div>
+        <div style="margin-top: 5%">
+            <div style="text-align: center;">
+                <div style="background-color: #75abfa;margin-bottom: 7%">
+                    <button id="btn1" class="btn btn-outline-primary" onClick="btn1()" style="width: 3em;height: 1.5em;margin-bottom: 0.9em;"></button><br>
+                    <button id="btn2" class="btn btn-outline-primary" onClick="btn2()" style="width: 3em;height: 1.5em;rotate: 90deg;margin-right: 0.9em;"></button>
+                    <button id="btn3" class="btn btn-outline-primary" onClick="btn3()" style="width: 3em;height: 1.5em;rotate: 90deg;"></button><br>
+                    <button id="btn4" class="btn btn-outline-primary" onClick="btn4()" style="width: 3em;height: 1.5em;margin-top: 0.8em;margin-bottom: 0.9em;"></button><br>
+                    <button id="btn5" class="btn btn-outline-primary" onClick="btn5()" style="width: 3em;height: 1.5em;rotate: 90deg;margin-right: 0.9em;"></button>
+                    <button id="btn6" class="btn btn-outline-primary" onClick="btn6()" style="width: 3em;height: 1.5em;rotate: 90deg;"></button><br>
+                    <button id="btn7" class="btn btn-outline-primary" onClick="btn7()" style="width: 3em;height: 1.5em;margin-top: 0.8em;"></button>
+                </div>
+                <button type="button" onClick="reset()" style="margin-bottom: 5%;" class="btn btn-success">Reset</button>
+            </div>
+        </div>
+    </div>
+
+<script>
+    const buttons = document.getElementsByTagName("button")
+    let one=two=three=four=five=six=seven = false
+    let click1=click2=click3=click4=click5=click6=click7 = 0
+
+    function btn1()
+    {
+        click1++
+
+        if(click1%2 == 0){
+            document.getElementById("btn1").style.backgroundColor=""
+            one = false
+            click1 = 0
+        }
+        else{
+            document.getElementById("btn1").style.backgroundColor="#0d6efd"
+            one = true
+        }
+        workStation()
+    }
+    function btn2()
+    {
+        click2++
+
+        if(click2%2 == 0){
+            document.getElementById("btn2").style.backgroundColor=""
+            two = false
+            click2 = 0
+        }
+        else{
+            document.getElementById("btn2").style.backgroundColor="#0d6efd"
+            two = true
+        }
+        workStation()
+    }
+    function btn3()
+    {
+        click3++
+
+        if(click3%2 == 0){
+            document.getElementById("btn3").style.backgroundColor=""
+            three = false
+            click3 = 0
+        }
+        else{
+            document.getElementById("btn3").style.backgroundColor="#0d6efd"
+            three = true
+        }
+        workStation()
+    }
+    function btn4()
+    {
+        click4++
+
+        if(click4%2 == 0){
+            document.getElementById("btn4").style.backgroundColor=""
+            four = false
+            click4 = 0
+        }
+        else{
+            document.getElementById("btn4").style.backgroundColor="#0d6efd"
+            four = true
+        }
+        workStation()
+    }
+    function btn5()
+    {
+        click5++
+
+        if(click5%2 == 0){
+            document.getElementById("btn5").style.backgroundColor=""
+            five = false
+            click5 = 0
+        }
+        else{
+            document.getElementById("btn5").style.backgroundColor="#0d6efd"
+            five = true
+        }
+        workStation()
+    }
+    function btn6()
+    {
+        click6++
+
+        if(click6%2 == 0){
+            document.getElementById("btn6").style.backgroundColor=""
+            six = false
+            click6 = 0
+        }
+        else{
+            document.getElementById("btn6").style.backgroundColor="#0d6efd"
+            six = true
+        }
+        workStation()
+    }
+    function btn7()
+    {
+        click7++
+
+        if(click7%2 == 0){
+            document.getElementById("btn7").style.backgroundColor=""
+            seven = false
+            click7 = 0
+        }
+        else{
+            document.getElementById("btn7").style.backgroundColor="#0d6efd"
+            seven = true
+        }
+        workStation()
+    }
+
+    function reset()
+    {
+        one=two=three=four=five=six=seven = false
+        click1=click2=click3=click4=click5=click6=click7 = 0
+        workStation()
+        for (let i = 0; i < buttons.length; i++)
+            buttons[i].style.backgroundColor = ""
+    }
+
+    function workStation()
+    {
+        if(!one && !two && !three && !four && !five && !six && !seven)
+            {document.getElementById("output").innerText = "0"}
+
+        else if(!one && !two && three && !four && !five && six && !seven)
+            {document.getElementById("output").innerText = "1"}
+
+        else if(one && !two && three && !four && !five && six && !seven)
+            {document.getElementById("output").innerText = "7"}
+
+        else if(!one && two && three && four && !five && six && !seven)
+            {document.getElementById("output").innerText = "4"}
+
+        else if(one && two && three && four && !five && six && seven)
+            {document.getElementById("output").innerText = "9"}
+
+        else if(one && !two && three && four && five && six && !seven)
+            {document.getElementById("output").innerText = "2"}
+
+        else if(one && !two && three && four && !five && six && seven)
+            {document.getElementById("output").innerText = "3"}
+
+        else if(one && two && !three && four && !five && six && seven)
+            {document.getElementById("output").innerText = "5"}
+
+        else if(one && two && !three && four && five && six && seven)
+            {document.getElementById("output").innerText = "6"}
+
+        else if(one && two && three && four && five && six && seven)
+            {document.getElementById("output").innerText = "8"}
+        else {document.getElementById("output").innerText = "--"}
+    }
+</script>
+
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+</body>
+</html>
